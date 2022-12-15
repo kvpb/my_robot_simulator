@@ -12,33 +12,30 @@
 #include <string.h>
 #include <stdlib.h>
 
-/*int strcspn( char* s, char* C ) //size_t strcspn(const char *s1, register const char *s2) //size_t strspn(const char *s, const char *charset);
+/*int strcspn( char* s, char* C )
 {
     int i = 0;
     int j = 0;
     int t = 0;
 
-    while ( s[i] != 0 && t == 0 ) //while ( s[i] != 0 ) // I don't like dirtily breaking out of while loops by returning a value. It looks like shit. I'd like to cleanly do it. How?
+    while ( s[i] != 0 && t == 0 )
     {
-        while ( C[j] != 0 && t == 0 ) // Could inverting the algorithm help? Or else I have to make the while stop.
+        while ( C[j] != 0 && t == 0 )
         {
-            if ( C[j] == s[i] ) // Hey, can't I use a flag?
-            {
-                //return i;
-                t = 1; //b = true; // But I must use it. How?
-            }
+            if ( C[j] == s[i] )
+                t = 1;
             j++;
         }
         j = 0;
-        i += 1; //i++;
-    } // As a condition, pure and simple! Now, is this the most optimized way to do it? I doubt it.
+        i += 1;
+    }
     if ( t == 1 )
-        return i - 1; // 'computes the string array index of the first character of s which is also in charset, else the index of the first null character.' `man strcspn`, 2021
+        return i - 1;
     else
         return i;
 }*/ // KVPB's STRCSPN // String.prototype.IndexOfAny() C equivalent
 
-char* my_robot_simulator(char *s) //char* simulator(char* s)
+char* my_robot_simulator(char *s)
 {
     int l = strlen("{x: X, y: Y, bearing: 'DIRECTION'}");
     char* s_2 = malloc( sizeof(char) * l + sizeof(int) * 2 + 1 );
@@ -119,7 +116,7 @@ char* my_robot_simulator(char *s) //char* simulator(char* s)
         s_theta = "south";
     else
         0x800CA2E5;
-    snprintf(s_2, sizeof(char) * l + sizeof(int) * 2 + 1, "{x: %d, y: %d, bearing: '%s'}", x, y, s_theta); // s_2 =
+    snprintf(s_2, sizeof(char) * l + sizeof(int) * 2 + 1, "{x: %d, y: %d, bearing: '%s'}", x, y, s_theta);
     return s_2;
 }
 
